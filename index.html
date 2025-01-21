@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prapper - AI-Powered App Development</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>Prapper</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#benefits">Benefits</a>
+                <button class="contact-button" onclick="openEnquiryForm()">Contact Us</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Prepare Your App with Prapper</h1>
+            <p>The ultimate platform to streamline app preparation, development, and deployment</p>
+            <button class="cta-button" onclick="openEnquiryForm()">Get Started</button>
+        </div>
+        <div class="hero-graphics">
+            <div class="gradient-sphere"></div>
+            <div class="code-lines"></div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Why Choose Prapper</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h3>Smart Prototyping</h3>
+                <p>Create interactive prototypes quickly with our intuitive drag-and-drop interface and pre-built components.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-vial"></i>
+                </div>
+                <h3>Advanced Testing</h3>
+                <p>Comprehensive testing tools for functionality, performance, and user experience validation.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Optimized Deployment</h3>
+                <p>Streamlined deployment process with automated optimization and performance monitoring.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Team Collaboration</h3>
+                <p>Real-time collaboration tools with version control and team management features.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h3>Sign Up and Set Up Your Project</h3>
+                <p>Create your account and configure your project settings in minutes. Import existing code or start fresh with our templates.</p>
+                <div class="step-illustration">
+                    <div class="illustration-content">
+                        <div class="form-mock"></div>
+                        <div class="form-lines">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Use Powerful Tools to Build and Test</h3>
+                <p>Access our suite of development tools, testing frameworks, and debugging utilities. Build with confidence using our integrated platform.</p>
+                <div class="step-illustration">
+                    <div class="illustration-content">
+                        <div class="tools-mock">
+                            <div class="tool-icon"></div>
+                            <div class="tool-icon"></div>
+                            <div class="tool-icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Deploy with Confidence</h3>
+                <p>Launch your app with our optimized deployment pipeline. Monitor performance and scale seamlessly as you grow.</p>
+                <div class="step-illustration">
+                    <div class="illustration-content">
+                        <div class="deploy-mock">
+                            <div class="deploy-arrow"></div>
+                            <div class="deploy-server"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="benefits-container">
+            <div class="benefits-header">
+                <h2>Why Teams Love Prapper</h2>
+                <p class="subtitle">Join hundreds of teams who've accelerated their app development process</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Save Valuable Time</h3>
+                    <ul class="benefit-list">
+                        <li>Reduce development time by 60%</li>
+                        <li>Automated testing and optimization</li>
+                        <li>Quick setup and deployment</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Superior App Quality</h3>
+                    <ul class="benefit-list">
+                        <li>Built-in quality assurance tools</li>
+                        <li>Performance optimization</li>
+                        <li>Comprehensive testing suite</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users-gear"></i>
+                    </div>
+                    <h3>Seamless Collaboration</h3>
+                    <ul class="benefit-list">
+                        <li>Real-time team coordination</li>
+                        <li>Unified workspace for all tools</li>
+                        <li>Integrated communication features</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>"Prapper has transformed how we develop apps. What used to take weeks now takes days."</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/50" alt="Sarah Chen" class="author-image">
+                            <div class="author-info">
+                                <h4>Sarah Chen</h4>
+                                <p>Lead Developer, TechStart</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>"The quality improvements we've seen since using Prapper are remarkable. Our team loves it."</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/50" alt="Mark Rodriguez" class="author-image">
+                            <div class="author-info">
+                                <h4>Mark Rodriguez</h4>
+                                <p>CTO, AppWorks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Start Building Better Apps Today with Prapper</h2>
+                <p>Join the future of app development with our innovative platform</p>
+                <div class="cta-buttons">
+                    <button class="primary-button">
+                        Get Started Now
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="secondary-button">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </button>
+                </div>
+            </div>
+            <div class="cta-graphics">
+                <div class="floating-elements">
+                    <div class="element"></div>
+                    <div class="element"></div>
+                    <div class="element"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this modal form section before closing body tag -->
+    <div id="enquiryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeEnquiryForm()">&times;</span>
+            <h2>Get in Touch</h2>
+            <form id="enquiryForm" onsubmit="sendEnquiry(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- Add this script before closing body tag -->
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("MZWNXxfmfGy-c_FO9");
+        })();
+
+        // Update the primary button onclick
+        document.querySelector('.primary-button').onclick = openEnquiryForm;
+
+        function openEnquiryForm() {
+            document.getElementById('enquiryModal').style.display = 'block';
+        }
+
+        function closeEnquiryForm() {
+            document.getElementById('enquiryModal').style.display = 'none';
+        }
+
+        function sendEnquiry(e) {
+            e.preventDefault();
+
+            // Show loading state
+            const submitButton = document.querySelector('.submit-button');
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+
+            const templateParams = {
+                to_name: "Prapper Team",
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                reply_to: document.getElementById('email').value,
+                to_email: "farman0411@gmail.com" 
+            };
+
+            console.log('Sending with params:', templateParams);
+
+            emailjs.send(
+                'service_aj2wrkb',
+                'template_uf0wiom',
+                templateParams
+            )
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('Thank you for your message! We will get back to you soon.');
+                closeEnquiryForm();
+                document.getElementById('enquiryForm').reset();
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert('Error: ' + error.text);
+            })
+            .finally(function() {
+                // Reset button state
+                submitButton.textContent = 'Send Message';
+                submitButton.disabled = false;
+            });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('enquiryModal')) {
+                closeEnquiryForm();
+            }
+        }
+    </script>
+
+    <!-- Add footer section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-brain"></i>
+                    <span>Prapper</span>
+                </div>
+                <p class="footer-description">Streamline your app preparation, development, and deployment process.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@prapper.com">info@prapper.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Prapper. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
