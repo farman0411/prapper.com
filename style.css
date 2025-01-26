@@ -4,13 +4,62 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s ease-in-out,
+                color 0.3s ease-in-out,
+                border-color 0.3s ease-in-out,
+                box-shadow 0.3s ease-in-out;
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* This accounts for the fixed navbar */
+}
+
+/* Theme variables with refined colors */
+:root {
+    /* Light theme (default) */
+    --primary: #28a745;
+    --primary-dark: #1f7a39;
+    --primary-light: #a8e6a2;
+    --background: #ffffff;
+    --background-alt: #f8f9fa;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-muted: #666666;
+    --border-color: rgba(40, 167, 69, 0.1);
+    --shadow-color: rgba(40, 167, 69, 0.1);
+    --gradient-start: #a8e6a2;
+    --gradient-end: #28a745;
+    --header-border: #28a745;
+    --footer-line: #28a745;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --primary: #007bff;
+    --primary-dark: #003366;
+    --primary-light: #66b2ff;
+    --background: #121212;
+    --background-alt: #0d0d1a;
+    --text-primary: #ffffff;
+    --text-secondary: #dcdcdc;
+    --text-muted: #a0a0a0;
+    --border-color: rgba(0, 123, 255, 0.1);
+    --shadow-color: rgba(0, 123, 255, 0.1);
+    --gradient-start: #003366;
+    --gradient-end: #007bff;
+    --header-border: #007bff;
+    --footer-line: #007bff;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background: #0a0f1c;
-    color: #ffffff;
+    background: var(--background);
+    color: var(--text-secondary);
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
 /* Add top bar styles */
@@ -48,40 +97,37 @@ body {
 
 /* Update navbar positioning */
 .navbar {
+    background: var(--background);
+    border-bottom: 2px solid var(--header-border);
+    padding: 1rem 2rem;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 1.2rem 2rem;
-    background: rgba(13, 20, 36, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    backdrop-filter: blur(10px);
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #ffffff;
-    text-decoration: none;
+    gap: 0.8rem;
 }
 
 .logo i {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 1.8rem;
 }
 
 .logo span {
-    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
 }
 
 .nav-links {
@@ -91,36 +137,48 @@ body {
 }
 
 .nav-links a {
-    color: #e2e8f0;
-    text-decoration: none;
-    font-weight: 500;
+    color: var(--text-secondary);
     font-size: 1rem;
-    transition: all 0.3s ease;
+    font-weight: 500;
+    text-decoration: none;
     position: relative;
+    padding: 0.5rem 0;
+    cursor: pointer;
 }
 
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: #ffffff;
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Add active state for navigation links */
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-links a.active::after {
     width: 100%;
 }
 
 .contact-button {
     padding: 0.7rem 1.5rem;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
     color: white;
     border: none;
     border-radius: 8px;
@@ -132,7 +190,7 @@ body {
 
 .contact-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 /* Update hero section padding */
@@ -142,7 +200,7 @@ body {
     align-items: center;
     padding: 6rem 2rem;
     position: relative;
-    background: linear-gradient(135deg, #0a0f1c 0%, #1a1f35 100%);
+    background: var(--background-alt);
     overflow: hidden;
     padding-top: 120px;
 }
@@ -154,20 +212,24 @@ body {
     z-index: 2;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+}
+
 h1 {
     font-size: 3.5rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary);
+    -webkit-text-fill-color: var(--text-primary);
+    background: none;
 }
 
 .hero-content p {
     font-size: 1.25rem;
     line-height: 1.6;
-    color: #94a3b8;
+    color: var(--text-muted);
     margin-bottom: 2rem;
 }
 
@@ -176,7 +238,7 @@ h1 {
     font-size: 1.1rem;
     font-weight: 500;
     color: #ffffff;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -185,7 +247,7 @@ h1 {
 
 .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 .hero-graphics {
@@ -204,7 +266,10 @@ h1 {
     right: -100px;
     top: 50%;
     transform: translateY(-50%);
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.05) 50%, transparent 70%);
+    background: radial-gradient(circle, 
+        var(--primary-light) 0%, 
+        rgba(37, 99, 235, 0.05) 50%, 
+        transparent 70%);
     border-radius: 50%;
     animation: float 6s ease-in-out infinite;
 }
@@ -214,8 +279,8 @@ h1 {
     width: 100%;
     height: 100%;
     background: 
-        linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+        linear-gradient(90deg, var(--border-color) 1px, transparent 1px),
+        linear-gradient(0deg, var(--border-color) 1px, transparent 1px);
     background-size: 20px 20px;
     transform: perspective(1000px) rotateY(-30deg);
 }
@@ -277,7 +342,7 @@ h1 {
 
 .features {
     padding: 6rem 2rem;
-    background: #0d1424;
+    background: var(--background);
     position: relative;
     overflow: hidden;
 }
@@ -286,9 +351,9 @@ h1 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 4rem;
-    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary);
+    -webkit-text-fill-color: var(--text-primary);
+    background: none;
 }
 
 .features-grid {
@@ -300,13 +365,14 @@ h1 {
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--background-alt);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 12px;
     padding: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .feature-card::before {
@@ -333,7 +399,7 @@ h1 {
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -343,17 +409,17 @@ h1 {
 
 .feature-icon i {
     font-size: 1.5rem;
-    color: #ffffff;
+    color: var(--background);
 }
 
 .feature-card h3 {
     font-size: 1.25rem;
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: 1rem;
 }
 
 .feature-card p {
-    color: #94a3b8;
+    color: var(--text-secondary);
     line-height: 1.6;
     font-size: 1rem;
 }
@@ -400,7 +466,7 @@ h1 {
 
 .how-it-works {
     padding: 8rem 2rem;
-    background: #0a0f1c;
+    background: var(--background-alt);
     position: relative;
 }
 
@@ -408,9 +474,9 @@ h1 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 4rem;
-    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary);
+    -webkit-text-fill-color: var(--text-primary);
+    background: none;
 }
 
 .steps-container {
@@ -430,8 +496,8 @@ h1 {
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, 
-        rgba(59, 130, 246, 0.3) 0%, 
-        rgba(59, 130, 246, 0.1) 100%);
+        var(--border-color) 0%, 
+        var(--border-color) 100%);
     z-index: 0;
 }
 
@@ -445,20 +511,20 @@ h1 {
 .step-number {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    color: white;
+    color: var(--background);
     margin: 0 auto 1.5rem;
 }
 
 .step-icon {
     width: 70px;
     height: 70px;
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(var(--primary), 0.1);
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -468,17 +534,17 @@ h1 {
 
 .step-icon i {
     font-size: 2rem;
-    color: #3b82f6;
+    color: var(--primary);
 }
 
 .step h3 {
     font-size: 1.25rem;
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: 1rem;
 }
 
 .step p {
-    color: #94a3b8;
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 2rem;
 }
@@ -551,7 +617,9 @@ h1 {
 .deploy-arrow {
     width: 60%;
     height: 8px;
-    background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+    background: linear-gradient(90deg, 
+        var(--primary) 0%, 
+        var(--primary-dark) 100%);
     position: relative;
 }
 
@@ -561,7 +629,7 @@ h1 {
     right: -10px;
     top: 50%;
     transform: translateY(-50%);
-    border-left: 15px solid #2563eb;
+    border-left: 15px solid var(--primary-dark);
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
 }
@@ -602,7 +670,7 @@ h1 {
 
 .benefits {
     padding: 8rem 2rem;
-    background: #0d1424;
+    background: var(--background);
     position: relative;
 }
 
@@ -619,13 +687,13 @@ h1 {
 .benefits-header h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary);
+    -webkit-text-fill-color: var(--text-primary);
+    background: none;
 }
 
 .subtitle {
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 1.2rem;
 }
 
@@ -637,11 +705,12 @@ h1 {
 }
 
 .benefit-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--background-alt);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 12px;
     padding: 2rem;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .benefit-card:hover {
@@ -651,7 +720,7 @@ h1 {
 .benefit-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -661,18 +730,18 @@ h1 {
 
 .benefit-icon i {
     font-size: 1.5rem;
-    color: #ffffff;
+    color: var(--background);
 }
 
 .benefit-card h3 {
     font-size: 1.25rem;
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: 1rem;
 }
 
 .benefit-list {
     list-style: none;
-    color: #94a3b8;
+    color: var(--text-secondary);
 }
 
 .benefit-list li {
@@ -685,7 +754,7 @@ h1 {
     content: '→';
     position: absolute;
     left: 0;
-    color: #3b82f6;
+    color: var(--primary);
 }
 
 .testimonials {
@@ -696,8 +765,8 @@ h1 {
 }
 
 .testimonial-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--background);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 12px;
     padding: 2rem;
 }
@@ -707,13 +776,13 @@ h1 {
 }
 
 .quote-icon {
-    color: #3b82f6;
+    color: var(--primary);
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
 .testimonial-content p {
-    color: #e2e8f0;
+    color: var(--text-secondary);
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
@@ -732,13 +801,13 @@ h1 {
 }
 
 .author-info h4 {
-    color: #ffffff;
+    color: var(--text-primary);
     font-size: 1rem;
     margin-bottom: 0.2rem;
 }
 
 .author-info p {
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
@@ -774,7 +843,7 @@ h1 {
 
 .cta-section {
     padding: 8rem 2rem;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--background) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -799,15 +868,15 @@ h1 {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary);
+    -webkit-text-fill-color: var(--text-primary);
+    background: none;
     animation: fadeInUp 0.6s ease backwards;
 }
 
 .cta-content p {
     font-size: 1.25rem;
-    color: #94a3b8;
+    color: var(--text-muted);
     margin-bottom: 2.5rem;
     line-height: 1.6;
     animation: fadeInUp 0.6s ease backwards 0.2s;
@@ -824,8 +893,8 @@ h1 {
     padding: 1rem 2rem;
     font-size: 1.1rem;
     font-weight: 500;
-    color: #ffffff;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: var(--background);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -837,7 +906,7 @@ h1 {
 
 .primary-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 .secondary-button {
@@ -926,14 +995,14 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1000;
     backdrop-filter: blur(5px);
 }
 
 .modal-content {
     position: relative;
-    background: linear-gradient(135deg, #1a1f35 0%, #0f172a 100%);
+    background: var(--background);
     margin: 5% auto;
     padding: 2rem;
     width: 90%;
@@ -948,19 +1017,19 @@ h1 {
     right: 1.5rem;
     top: 1.5rem;
     font-size: 1.5rem;
-    color: #94a3b8;
+    color: var(--text-muted);
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .close-button:hover {
-    color: #ffffff;
+    color: var(--text-primary);
 }
 
 .modal-content h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: #ffffff;
+    color: var(--text-primary);
     text-align: center;
 }
 
@@ -971,7 +1040,7 @@ h1 {
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #e2e8f0;
+    color: var(--text-secondary);
     font-size: 0.9rem;
 }
 
@@ -979,10 +1048,10 @@ h1 {
 .form-group textarea {
     width: 100%;
     padding: 0.8rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--background-alt);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
-    color: #ffffff;
+    color: var(--text-secondary);
     font-size: 1rem;
     transition: border-color 0.3s ease;
 }
@@ -995,14 +1064,14 @@ h1 {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #3b82f6;
+    border-color: var(--primary);
 }
 
 .submit-button {
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: var(--background);
     border: none;
     border-radius: 6px;
     font-size: 1rem;
@@ -1013,7 +1082,7 @@ h1 {
 
 .submit-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 @keyframes modalSlideIn {
@@ -1041,9 +1110,19 @@ h1 {
 /* Remove top-bar styles and add footer styles */
 
 .footer {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: var(--background-alt);
     padding: 4rem 2rem 1rem;
-    color: #e2e8f0;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--footer-line), transparent);
 }
 
 .footer-content {
@@ -1052,41 +1131,39 @@ h1 {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 4rem;
-    margin-bottom: 3rem;
 }
 
 .footer-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
 }
 
 .footer-logo i {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 1.8rem;
 }
 
 .footer-logo span {
-    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.footer-description {
-    color: #94a3b8;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
 }
 
 .footer-section h3 {
-    color: #ffffff;
-    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
     margin-bottom: 1.5rem;
+}
+
+.footer-description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1rem;
 }
 
 .footer-section ul {
@@ -1095,46 +1172,50 @@ h1 {
 }
 
 .footer-section ul li {
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
 }
 
 .footer-section ul a {
-    color: #94a3b8;
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 .footer-section ul a:hover {
-    color: #3b82f6;
+    color: var(--primary);
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1rem;
     margin-bottom: 1rem;
 }
 
 .contact-item i {
-    color: #3b82f6;
+    color: var(--primary);
     font-size: 1.1rem;
 }
 
 .contact-item a {
-    color: #94a3b8;
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .contact-item a:hover {
-    color: #3b82f6;
+    color: var(--primary);
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border-color);
+    margin-top: 3rem;
     padding-top: 1.5rem;
     text-align: center;
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
@@ -1145,11 +1226,258 @@ h1 {
         text-align: center;
     }
 
-    .footer-logo {
-        justify-content: center;
-    }
-
+    .footer-logo,
     .contact-item {
         justify-content: center;
     }
+}
+
+/* Add team section styles */
+.team {
+    padding: 8rem 2rem;
+    background: var(--background-alt);
+    position: relative;
+}
+
+.team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    -webkit-text-fill-color: var(--text-primary);
+    background: none;
+}
+
+.team-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+.team-member {
+    background: var(--background);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.member-image {
+    position: relative;
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.social-links {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 2rem 1rem 1rem;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.team-member:hover .social-links {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.social-links a {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.social-links a:hover {
+    color: var(--primary);
+}
+
+.team-member h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.member-role {
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.member-bio {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .team {
+        padding: 4rem 1rem;
+    }
+
+    .team h2 {
+        font-size: 2rem;
+    }
+
+    .team-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+    background: var(--background-alt);
+    border: 1px solid var(--border-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--border-color);
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+.theme-toggle .light-icon {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.theme-toggle .dark-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+[data-theme="dark"] .theme-toggle .light-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+[data-theme="dark"] .theme-toggle .dark-icon {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+/* Add cursor: pointer to all clickable elements */
+
+/* Navigation links */
+.nav-links a {
+    cursor: pointer;
+}
+
+/* All buttons */
+button,
+.contact-button,
+.cta-button,
+.primary-button,
+.secondary-button,
+.submit-button {
+    cursor: pointer;
+}
+
+/* Social links */
+.social-links a {
+    cursor: pointer;
+}
+
+/* Footer links */
+.footer-section ul a,
+.contact-item a {
+    cursor: pointer;
+}
+
+/* Close button in modal */
+.close-button {
+    cursor: pointer;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    cursor: pointer;
+}
+
+/* Benefit cards with hover effect */
+.benefit-card {
+    cursor: pointer;
+}
+
+/* Feature cards with hover effect */
+.feature-card {
+    cursor: pointer;
+}
+
+/* Team member cards with hover effect */
+.team-member {
+    cursor: pointer;
+}
+
+/* Form elements */
+input[type="submit"],
+button[type="submit"] {
+    cursor: pointer;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
 }

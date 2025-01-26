@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Your updated description here">
-
     <title>Prapper - AI-Powered App Development</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,23 +12,32 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <i class="fas fa-brain"></i>
-                <span>Prapper</span>
+                
+
+                    <i class="fas fa-brain"></i>
+                    <span>Prapper</span>
+                </a>
             </div>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#benefits">Benefits</a>
+                <a href="#team">Team</a>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
                 <button class="contact-button" onclick="openEnquiryForm()">Contact Us</button>
             </div>
         </nav>
     </header>
+    
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Prepare Your App with Prapper</h1>
-            <p>The ultimate platform to streamline app preparation, development, and deployment</p>
-            <button class="cta-button" onclick="openEnquiryForm()">Get Started</button>
+            <h1 class="fade-in">Prepare Your App with Prapper</h1>
+            <p class="fade-in" style="animation-delay: 0.2s;">The ultimate platform to streamline app preparation, development, and deployment</p>
+            <button class="cta-button fade-in" style="animation-delay: 0.4s;" onclick="openEnquiryForm()">Get Started</button>
         </div>
         <div class="hero-graphics">
             <div class="gradient-sphere"></div>
@@ -38,10 +45,11 @@
         </div>
     </section>
 
-    <section class="features">
-        <h2>Why Choose Prapper</h2>
+    
+    <section class="features" id="features">
+        <h2 class="fade-in">Why Choose Prapper</h2>
         <div class="features-grid">
-            <div class="feature-card">
+            <div class="feature-card scale-in" style="animation-delay: 0.1s;">
                 <div class="feature-icon">
                     <i class="fas fa-layer-group"></i>
                 </div>
@@ -49,7 +57,7 @@
                 <p>Create interactive prototypes quickly with our intuitive drag-and-drop interface and pre-built components.</p>
             </div>
 
-            <div class="feature-card">
+            <div class="feature-card scale-in" style="animation-delay: 0.2s;">
                 <div class="feature-icon">
                     <i class="fas fa-vial"></i>
                 </div>
@@ -57,7 +65,7 @@
                 <p>Comprehensive testing tools for functionality, performance, and user experience validation.</p>
             </div>
 
-            <div class="feature-card">
+            <div class="feature-card scale-in" style="animation-delay: 0.3s;">
                 <div class="feature-icon">
                     <i class="fas fa-rocket"></i>
                 </div>
@@ -65,7 +73,7 @@
                 <p>Streamlined deployment process with automated optimization and performance monitoring.</p>
             </div>
 
-            <div class="feature-card">
+            <div class="feature-card scale-in" style="animation-delay: 0.4s;">
                 <div class="feature-icon">
                     <i class="fas fa-users"></i>
                 </div>
@@ -75,7 +83,9 @@
         </div>
     </section>
 
-    <section class="how-it-works">
+  
+
+    <section class="how-it-works" id="how-it-works">
         <h2>How It Works</h2>
         <div class="steps-container">
             <div class="step">
@@ -121,7 +131,7 @@
                     <i class="fas fa-rocket"></i>
                 </div>
                 <h3>Deploy with Confidence</h3>
-                <p>Launch your app with our optimized deployment pipeline. Monitor performance and scale seamlessly as you grow.</p>
+                <p>Effortlessly deploy and manage your app with our optimized pipeline. Monitor performance in real-time and scale seamlessly as your business grows.</p>
                 <div class="step-illustration">
                     <div class="illustration-content">
                         <div class="deploy-mock">
@@ -134,7 +144,7 @@
         </div>
     </section>
 
-    <section class="benefits">
+    <section class="benefits" id="benefits">
         <div class="benefits-container">
             <div class="benefits-header">
                 <h2>Why Teams Love Prapper</h2>
@@ -206,6 +216,80 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team" id="team">
+        <div class="team-container">
+            <h2 class="fade-in">Meet Our Team</h2>
+            <p class="team-subtitle fade-in" style="animation-delay: 0.2s;">The Visionaries Driving Prapper's Innovation</p>
+            
+            <div class="team-grid">
+                <div class="team-member slide-up" style="animation-delay: 0.1s;">
+                    <div class="member-image">
+                        <img src="./images/Akash.png" alt="Akash Tyagi">
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <h3>Akash Tyagi</h3>
+                    <p class="member-role">Founder</p>
+                    <p class="member-bio">Visionary leader with 5+ years of experience in tech innovation and startup development.</p>
+                </div>
+
+                <div class="team-member slide-up" style="animation-delay: 0.2s;">
+                    <div class="member-image">
+                        <img src="./images/Farman.jpeg" alt="Farman Zaidi">
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <h3>Farman Zaidi</h3>
+                    <p class="member-role">Co-Founder</p>
+                    <p class="member-bio">Tech enthusiast with expertise in product development and team leadership.</p>
+                </div>
+
+                <div class="team-member slide-up" style="animation-delay: 0.3s;">
+                    <div class="member-image">
+                        <img src="./images/samarth.jpeg" alt="Samarth Goel">
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3>Samarth Goel</h3>
+                    <p class="member-role">Co-Founder<br>Backend Developer</p>
+                    <p class="member-bio">Full-stack developer specializing in scalable architecture and cloud solutions.</p>
+                </div>
+
+                <div class="team-member slide-up" style="animation-delay: 0.4s;">
+                    <div class="member-image">
+                        <img src="./images/palak.jpeg" alt="Palak Singla">
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <h3>Palak Singla</h3>
+                    <p class="member-role">Co-Founder<br>Marketing Analyst</p>
+                    <p class="member-bio">Marketing strategist with a passion for data-driven growth and brand development.</p>
+                </div>
+
+                <div class="team-member slide-up" style="animation-delay: 0.5s;">
+                    <div class="member-image">
+                        <img src="./images/dheeraj.png" alt="Dheeraj Bhataria">
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <h3>Dheeraj Bhataria</h3>
+                    <p class="member-role">Co-Founder<br>Business Analyst</p>
+                    <p class="member-bio">Business strategist focused on market analysis and sustainable growth models.</p>
                 </div>
             </div>
         </div>
@@ -327,6 +411,111 @@
                 closeEnquiryForm();
             }
         }
+
+        // Handle active state for navigation links
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+        function updateActiveLink() {
+            const scrollPosition = window.scrollY + 100; // Offset for navbar
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + sectionId) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Update active state on scroll
+        window.addEventListener('scroll', updateActiveLink);
+        
+        // Handle smooth scroll for Safari and older browsers
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 79; // Navbar height - 1px
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Theme switcher functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Function to set theme
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+        
+        // Initialize theme
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else if (prefersDarkScheme.matches) {
+                setTheme('dark');
+            } else {
+                setTheme('light');
+            }
+        }
+        
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+        
+        // Listen for system theme changes
+        prefersDarkScheme.addListener((e) => {
+            const savedTheme = localStorage.getItem('theme');
+            if (!savedTheme) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+        
+        // Initialize theme on page load
+        initializeTheme();
+
+        // Animation Observer
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create intersection observer for animations
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '50px'
+            });
+
+            // Observe elements with animation classes
+            document.querySelectorAll('.fade-in').forEach(el => animationObserver.observe(el));
+            document.querySelectorAll('.slide-up').forEach(el => animationObserver.observe(el));
+            document.querySelectorAll('.scale-in').forEach(el => animationObserver.observe(el));
+            document.querySelectorAll('.progress-step').forEach(el => animationObserver.observe(el));
+            document.querySelectorAll('.code-snippet').forEach(el => animationObserver.observe(el));
+        });
     </script>
 
     <!-- Add footer section -->
@@ -345,18 +534,19 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
                     <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#team">Team</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Contact</h3>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <a href="mailto:info@prapper.com">info@prapper.com</a>
+                    <a href="mailto:farmanzaidi@prapper.com">farmanzaidi@prapper.com</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Prapper. All rights reserved.</p>
+            <p>&copy; 2025 Prapper. All rights reserved.</p>
         </div>
     </footer>
 </body>
